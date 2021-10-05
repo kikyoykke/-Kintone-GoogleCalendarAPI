@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-
+  alert('有効');
     // 認証用URL（読み取り／更新）
   const scope = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events';
   // Discovery Docs
