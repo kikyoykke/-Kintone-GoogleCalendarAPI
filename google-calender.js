@@ -22,7 +22,6 @@
 
   // レコード詳細画面の表示後イベント
   kintone.events.on('app.record.detail.show', (event) => {
-    alert('有効');
     // 増殖バグ回避
     if (document.getElementById('publish_button') !== null) {
       return event;
@@ -41,6 +40,7 @@
   });
 
   async function publishEvent() {
+    alert('有効');
     // レコードのデータの取得
     const record = kintone.app.record.get().record;
 
