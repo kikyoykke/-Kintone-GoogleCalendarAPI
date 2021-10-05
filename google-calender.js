@@ -1,6 +1,5 @@
 (function() {
   'use strict';
-  alert('有効');
     // 認証用URL（読み取り／更新）
   const scope = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events';
   // Discovery Docs
@@ -23,6 +22,7 @@
 
   // レコード詳細画面の表示後イベント
   kintone.events.on('app.record.detail.show', (event) => {
+    alert('有効');
     // 増殖バグ回避
     if (document.getElementById('publish_button') !== null) {
       return event;
