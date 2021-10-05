@@ -10,7 +10,7 @@
     gapi.client.init({
       'apiKey': kintone.app.record.get().record.gcapi_key.value,
       'discoveryDocs': discovery_docs,
-      'clientId': intone.app.record.get().record.gcclient_id.value,
+      'clientId': kintone.app.record.get().record.gcclient_id.value,
       'scope': scope
     }, (error) => {
       alert('Googleへの認証に失敗しました。: ' + error);
