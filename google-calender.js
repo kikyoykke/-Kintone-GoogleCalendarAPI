@@ -9,9 +9,9 @@
   // APIクライアントライブラリの初期化とサインイン
   function initClient() {
     gapi.client.init({
-      'apiKey': kintone.app.record.get().record.gcapi_key.value,
+      'apiKey': record.gcapi_key.value,
       'discoveryDocs': discovery_docs,
-      'clientId': kintone.app.record.get().record.gcclient_id.value,
+      'clientId': record.gcclient_id.value,
       'scope': scope
     }, (error) => {
       alert('Googleへの認証に失敗しました。: ' + error);
