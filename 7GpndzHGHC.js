@@ -29,16 +29,16 @@ kintone.events.on(events, function(event) {
   }
   
   //▼----------西暦を代入する
-  if(record['西暦1'].value === undefined){
-    record['西暦1'].value = year + '-' + record['和暦月2'].value + '-' + record['和暦日2'].value;
+  if(record['西暦2'].value === undefined){
+    record['西暦2'].value = year + '-' + record['和暦月2'].value + '-' + record['和暦日2'].value;
     return event;
   }
-  else if(record['西暦1'].value !== undefined){
-    let JapanDate = record['西暦1'].value.replace('-0','-');
+  else if(record['西暦2'].value !== undefined){
+    let JapanDate = record['西暦2'].value.replace('-0','-');
     let WestDate = year + '-' + record['和暦月2'].value + '-' + record['和暦日2'].value;
     //▼----------西暦を変更する
     if(JapanDate !== WestDate){
-      record['西暦1'].value = year + '-' + record['和暦月2'].value + '-' + record['和暦日2'].value;
+      record['西暦2'].value = year + '-' + record['和暦月2'].value + '-' + record['和暦日2'].value;
       return event;
     }
     //▼----------西暦を変更なし
@@ -50,12 +50,12 @@ kintone.events.on(events, function(event) {
 })();
 
 (function () {
-let events = ['app.record.edit.change.西暦1'
-              ,'app.record.create.change.西暦1'
+let events = ['app.record.edit.change.西暦2'
+              ,'app.record.create.change.西暦2'
               ];
 kintone.events.on(events, function(event) {
   let record = event.record;
-  let yeardate = record['西暦1'].value.split('-');
+  let yeardate = record['西暦2'].value.split('-');
   let JapanDate = [];
   let WestDate = [];
   if(Number(yeardate[0]) > 2018){
