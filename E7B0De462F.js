@@ -5,17 +5,31 @@
   const scope = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events';
   // Discovery Docs
   const discovery_docs = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
-
+  
+  var api_key = '';
+  
+  var client_id = '';
+  
+  var param = {
+    'app': 81,
+    'id': 1,
+  };
+  kintone.api(kintone.api.url('/k/v1/record', true), 'GET', param , function(resp) {
+　　api_key = resp.record.api_key.value;
+  　client_id = resp.record.client_id.value;
+  });
+    
   // レコード詳細画面の表示後イベント
   kintone.events.on('app.record.detail.show', (event) => {
+
     // APIクライアントライブラリの初期化とサインイン
     function initClient() {
       const record = kintone.app.record.get().record;
 
       gapi.client.init({
-        'apiKey': record.gcapi_key.value,
+        'apiKey': api_key,
         'discoveryDocs': discovery_docs,
-        'clientId': record.gcclient_id.value,
+        'clientId': client_id,
         'scope': scope
       }, (error) => {
         alert('Googleへの認証に失敗しました。: ' + error);
