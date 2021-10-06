@@ -6,22 +6,21 @@
   // Discovery Docs
   const discovery_docs = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
   
-  var api_key = '';
-  
-  var client_id = '';
-  
-  var param = {
-    'app': 81,
-    'id': 1,
-  };
-  kintone.api(kintone.api.url('/k/v1/record', true), 'GET', param , function(resp) {
-　　api_key = resp.record.api_key.value;
-  　client_id = resp.record.client_id.value;
-  });
     
   // レコード詳細画面の表示後イベント
   kintone.events.on('app.record.detail.show', (event) => {
 
+    var api_key = '';
+    var client_id = '';
+    
+    var param = {
+      'app': 81,
+      'id': 1,
+    };
+    kintone.api(kintone.api.url('/k/v1/record', true), 'GET', param , function(resp) {
+    api_key = resp.record.api_key.value;
+     client_id = resp.record.client_id.value;
+    });
     // APIクライアントライブラリの初期化とサインイン
     function initClient() {
       const record = kintone.app.record.get().record;
