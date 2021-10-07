@@ -23,8 +23,6 @@
 
     // APIクライアントライブラリの初期化とサインイン
     function initClient() {
-      const record = kintone.app.record.get().record;
-
       gapi.client.init({
         'apiKey': api_key,
         'discoveryDocs': discovery_docs,
