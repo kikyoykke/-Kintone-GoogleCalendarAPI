@@ -1,6 +1,5 @@
 (function() {
   'use strict';
-
   // 認証用URL（読み取り／更新）
   const scope = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/documents https://www.googleapis.com/auth/drive';
   // Discovery Docs
@@ -15,12 +14,11 @@
   };
   kintone.api(kintone.api.url('/k/v1/record', true), 'GET', param , function(resp) {
   api_key = resp.record.api_key.value;
-  client_id = resp.record.client_id.value;
+   client_id = resp.record.client_id.value;
   });
   
   // レコード詳細画面の表示後イベント
   kintone.events.on('app.record.detail.show', (event) => {
-
     // APIクライアントライブラリの初期化とサインイン
     function initClient() {
       gapi.client.init({
@@ -32,7 +30,6 @@
         alert('Googleへの認証に失敗しました。: ' + error);
       });
     }
-
     // APIクライアントとOAuth2ライブラリのロード
     gapi.load('client:auth2', initClient);
     // 増殖バグ回避
@@ -51,11 +48,9 @@
     kintone.app.record.getSpaceElement('publish_button_space').appendChild(publishButton);
     return event;
   });
-
   async function publishEvent() {
     // レコードのデータの取得
     const record = kintone.app.record.get().record;
-
     if (record) {
       // Google認証済みのチェック
       if (!gapi.auth2.getAuthInstance().isSignedIn.get()) {
@@ -84,7 +79,6 @@
       };
       let request;
       // リクエストメソッドとパラメータの設定
-
       if (record.event_id.value) { // 公開済みイベントを更新
         request = gapi.client.calendar.events.patch(
           {
