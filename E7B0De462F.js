@@ -15,7 +15,7 @@
   };
   kintone.api(kintone.api.url('/k/v1/record', true), 'GET', param , function(resp) {
   api_key = resp.record.api_key.value;
-   client_id = resp.record.client_id.value;
+  client_id = resp.record.client_id.value;
   });
   
   // レコード詳細画面の表示後イベント
@@ -24,9 +24,9 @@
     // APIクライアントライブラリの初期化とサインイン
     function initClient() {
       gapi.client.init({
-        'apiKey': api_key,
+        'apiKey': settingAPI-1.api_key.value,
         'discoveryDocs': discovery_docs,
-        'clientId': client_id,
+        'clientId': settingAPI-1.client_id.value,
         'scope': scope
       }, (error) => {
         alert('Googleへの認証に失敗しました。: ' + error);
