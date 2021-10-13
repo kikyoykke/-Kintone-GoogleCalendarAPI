@@ -24,9 +24,9 @@
     // APIクライアントライブラリの初期化とサインイン
     function initClient() {
       gapi.client.init({
-        'apiKey': settingAPI-1.api_key.value,
+        'apiKey': api_key,
         'discoveryDocs': discovery_docs,
-        'clientId': settingAPI-1.client_id.value,
+        'clientId': client_id,
         'scope': scope
       }, (error) => {
         alert('Googleへの認証に失敗しました。: ' + error);
