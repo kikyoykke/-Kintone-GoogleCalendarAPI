@@ -10,7 +10,7 @@
   var client_id = '';
 
   var param = {
-    'app': "settingAPI",
+    'app': 81,
     'id': 1,
   };
   kintone.api(kintone.api.url('/k/v1/record', true), 'GET', param , function(resp) {
