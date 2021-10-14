@@ -14,7 +14,7 @@
   };
   kintone.api(kintone.api.url('/k/v1/record', true), 'GET', param , function(resp) {
   api_key = resp.record.api_key.value;
-   client_id = resp.record.client_id.value;
+  client_id = resp.record.client_id.value;
   });
   
   // レコード詳細画面の表示後イベント
