@@ -79,17 +79,17 @@
       };
       let request;
       // リクエストメソッドとパラメータの設定
-      if (record.event_id.value) { // 公開済みイベントを更新
+      if (record.event_id.value = 'empty') { // 未公開のイベントを追加
+        request = gapi.client.calendar.events.insert(
+          {
+            'calendarId': record.calendar_id.value,
+            'resource': params
+          });
+      } else { // 公開済みイベントを更新
         request = gapi.client.calendar.events.patch(
           {
             'calendarId': record.calendar_id.value,
             'eventId': record.event_id.value,
-            'resource': params
-          });
-      } else { // 未公開のイベントを追加
-        request = gapi.client.calendar.events.insert(
-          {
-            'calendarId': record.calendar_id.value,
             'resource': params
           });
       }
