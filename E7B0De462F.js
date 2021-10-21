@@ -1,11 +1,9 @@
 (function() {
   'use strict';
-
   // 認証用URL（読み取り／更新）
   const scope = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/documents https://www.googleapis.com/auth/drive';
   // Discovery Docs
   const discovery_docs = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
-
   var api_key = '';
   var client_id = '';
   var param = {
@@ -93,6 +91,16 @@
             'resource': params
           });
       }
+
+    
+          
+            
+    
+
+          
+    
+    
+  
       // Googleカレンダーへのイベント登録の実行
       request.execute((resp) => {
         if (resp.error) {
