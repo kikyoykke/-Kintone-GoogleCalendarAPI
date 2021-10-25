@@ -26,7 +26,7 @@
     /* ボタン設置 */
     const gapi_calendar_button = new Kuc.Button({
       id: 'gapi_calendar_button',
-      text: 'Googleカレンダーにイベントを登録する',
+      text: 'Googleカレンダーに登録する',
       type: 'button'
     });
     
