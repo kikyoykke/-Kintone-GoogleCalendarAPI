@@ -1,51 +1,57 @@
 (function() {
   'use strict';
   // 認証用URL（読み取り／更新）
-  const scope = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/documents https://www.googleapis.com/auth/drive';
+  const scopes = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/documents https://www.googleapis.com/auth/drive';
   // Discovery Docs
   const discovery_docs = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
-  var api_key = '';
-  var client_id = '';
+  var api_key;
+  var client_id;
+
   var param = {
     'app': 81,
     'id': 1,
   };
-  kintone.api(kintone.api.url('/k/v1/record', true), 'GET', param , function(resp) {
-  api_key = resp.record.api_key.value;
-  client_id = resp.record.client_id.value;
+  kintone.api(kintone.api.url('/k/v1/record', true), 'GET', param , function (event) {
+    api_key = event.record.api_key.value;
+    client_id = event.record.client_id.value;
   });
   
-  // レコード詳細画面の表示後イベント
-  kintone.events.on('app.record.detail.show', (event) => {
+  kintone.events.on('app.record.detail.show', function(event){
+    const header = kintone.app.record.getHeaderMenuSpaceElement();
+
+    /* ボタン増殖バグ回避 */
+    if (document.getElementById ('gapi_calendar_button') !== null) {
+        return event;
+    }
+    /* ボタン設置 */
+    const gapi_calendar_button = new Kuc.Button({
+      id: 'gapi_calendar_button',
+      text: 'Googleカレンダーにイベントを登録する',
+      type: 'button'
+    });
+    
     // APIクライアントライブラリの初期化とサインイン
     function initClient() {
       gapi.client.init({
         'apiKey': api_key,
         'discoveryDocs': discovery_docs,
         'clientId': client_id,
-        'scope': scope
+        'scope': scopes
       }, (error) => {
         alert('Googleへの認証に失敗しました。: ' + error);
       });
     }
     // APIクライアントとOAuth2ライブラリのロード
     gapi.load('client:auth2', initClient);
-    // 増殖バグ回避
-    if (document.getElementById('publish_button') !== null) {
-      return event;
-    }
-    // 画面下部にボタンを設置
-    const publishButton = document.createElement('button');
-    publishButton.id = 'publish_button';
-    publishButton.innerHTML = 'Googleカレンダーに講習を登録・更新する';
-    publishButton.className = 'button-simple-cybozu geo-search-btn';
-    publishButton.style = 'margin-top: 30px; margin-left: 10px;';
-    publishButton.addEventListener('click', () => {
-      publishEvent();
+    
+    /* ボタンをクリックしたときのイベント */
+    gapi_calendar_button.addEventListener('click', () => {
+      publishEvent()
     });
-    kintone.app.record.getSpaceElement('publish_button_space').appendChild(publishButton);
+    header.appendChild(gapi_calendar_button);
     return event;
   });
+  
   async function publishEvent() {
     // レコードのデータの取得
     const record = kintone.app.record.get().record;
@@ -91,16 +97,7 @@
             'resource': params
           });
       }
-
-    
-          
-            
-    
-
-          
-    
-    
-  
+      
       // Googleカレンダーへのイベント登録の実行
       request.execute((resp) => {
         if (resp.error) {
