@@ -1,79 +1,46 @@
 (function() {
   'use strict';
-  // 認証用URL（読み取り／更新）
-  const scopes = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/documents https://www.googleapis.com/auth/drive';
-  // Discovery Docs
-  const discovery_docs = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
-  var api_key;
-  var client_id;
 
-  var param = {
-    'app': 81,
-    'id': 1,
-  };
-  kintone.api(kintone.api.url('/k/v1/record', true), 'GET', param , function (event) {
-    api_key = event.record.api_key.value;
-    client_id = event.record.client_id.value;
-  });
-  
   kintone.events.on('app.record.detail.show', function(event){
     const header = kintone.app.record.getHeaderMenuSpaceElement();
 
     /* ボタン増殖バグ回避 */
-    if (document.getElementById ('gapi_calendar_button') !== null) {
+    if (document.getElementById ('gapi_calendar_button2') !== null) {
         return event;
     }
     /* ボタン設置 */
-    const gapi_calendar_button = new Kuc.Button({
-      id: 'gapi_calendar_button',
-      text: 'Googleカレンダーに登録する',
+    const gapi_calendar_button2 = new Kuc.Button({
+      id: 'gapi_calendar_button2',
+      text: 'Gカレンダーに講習を登録する',
       type: 'button'
     });
-    
-    // APIクライアントライブラリの初期化とサインイン
-    function initClient() {
-      gapi.client.init({
-        'apiKey': api_key,
-        'discoveryDocs': discovery_docs,
-        'clientId': client_id,
-        'scope': scopes
-      }, (error) => {
-        alert('Googleへの認証に失敗しました。: ' + error);
-      });
-    }
-    // APIクライアントとOAuth2ライブラリのロード
-    gapi.load('client:auth2', initClient);
-    
+
     /* ボタンをクリックしたときのイベント */
-    gapi_calendar_button.addEventListener('click', () => {
+    gapi_calendar_button2.addEventListener('click', () => {
       publishEvent()
     });
-    header.appendChild(gapi_calendar_button);
+    header.appendChild(gapi_calendar_button2);
     return event;
   });
-  
-  async function publishEvent() {
+
+  function publishEvent() {
     // レコードのデータの取得
     const record = kintone.app.record.get().record;
     if (record) {
-      // Google認証済みのチェック
-      if (!gapi.auth2.getAuthInstance().isSignedIn.get()) {
-        // Google認証の呼び出し
-        await gapi.auth2.getAuthInstance().signIn();
-      }
+      let end_date = moment(record.end_date.value).subtract(-1,'day').format("YYYY-MM-DD");
       // API リクエスト
       // リクエストパラメータの設定
       const params = {
         // イベントのタイトル
-        'summary': record.event_name.value,
+        'summary': record.alldayevent_name.value,
         'start': {
           // 開始日・時刻
-          'dateTime': record.start_datetime.value,
+          'date': record.start_date.value,
           'timeZone': 'Asia/Tokyo'
         },
         'end': {
           // 終了日・時刻
-          'dateTime': record.end_datetime.value,
+          'date': end_date,
           'timeZone': 'Asia/Tokyo'
         },
         // 場所の指定
@@ -83,11 +50,11 @@
       };
       let request;
       // リクエストメソッドとパラメータの設定
-      if (record.event_id.value) { // 公開済みイベントを更新
+      if (record.alldayevent_id.value) { // 公開済みイベントを更新
         request = gapi.client.calendar.events.patch(
           {
             'calendarId': record.calendar_id.value,
-            'eventId': record.event_id.value,
+            'eventId': record.alldayevent_id.value,
             'resource': params
           });
       } else { // 未公開のイベントを追加
@@ -97,7 +64,7 @@
             'resource': params
           });
       }
-      
+
       // Googleカレンダーへのイベント登録の実行
       request.execute((resp) => {
         if (resp.error) {
@@ -107,7 +74,7 @@
             'app': kintone.app.getId(),
             'id': record.$id.value,
             'record': {
-              'event_id': {
+              'alldayevent_id': {
                 'value': resp.result.id
               }
             }
