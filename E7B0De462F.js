@@ -17,7 +17,7 @@
 
     /* ボタンをクリックしたときのイベント */
     gapi_calendar_button2.addEventListener('click', () => {
-      publishEvent()
+      publishEvent();
     });
     header.appendChild(gapi_calendar_button2);
     return event;
