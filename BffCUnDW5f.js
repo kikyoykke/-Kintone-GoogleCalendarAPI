@@ -80,7 +80,6 @@
               };
              return kintone.api(kintone.api.url('/k/v1/record.json', true), 'PUT', body, function(resp) {
                 // success
-                alert('Gカレンダーに科目を更新しました。');
                 location.reload();
               }, function(error) {
                 // error
