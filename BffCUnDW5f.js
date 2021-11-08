@@ -30,10 +30,9 @@
     var start_datetime;
     var end_datetime;
     let request;
+    
     if (record) {
-
       for (let i = 0; i < table.length; i++){
-        
         var event_id_array = [];
         
         for (let j = 0; j < table.length; j++){
@@ -68,7 +67,9 @@
             if (resp.error) {
               alert(table[i].value.event_name.value + 'の登録に失敗しました。' + resp.error.message);
             } else { //イベントIDの登録
-              event_id_array[i]={'id':table[i].id,'value':{'event_id':{'value': resp.result.id}}};
+              event_id_array[i]={'id':table[i].id,'value':{
+                'event_id':{'value': resp.result.id}
+              }};
               const body = {
                 'app': kintone.app.getId(),
                 'id': record.$id.value,
@@ -80,12 +81,14 @@
               };
              return kintone.api(kintone.api.url('/k/v1/record.json', true), 'PUT', body, function(resp) {
                 // success
+                alert(table[i].value.event_name.value +'を登録しました。');
+                location.reload();
               }, function(error) {
                 // error
-                alert(table[i].value.event_name.value + 'のテーブルデータの更新に失敗しました。' + error);
+                alert(table[i].value.event_name.value + 'の登録に失敗しました。' + error);
               });
             }
-          return true
+            return true;
           });
         } else { // 公開済みイベントを更新
           request = gapi.client.calendar.events.patch({
@@ -98,13 +101,12 @@
               alert(table[i].value.event_name.value + 'の登録に失敗しました。' + resp.error.message);
             } else {
               // success
+              alert(table[i].value.event_name.value +'を更新しました。');
             }
+          return true;
           });
-          return true
         }
       }
     }
-    alert('Gカレンダーに科目を更新しました。');
-    location.reload();
   }
 })();
