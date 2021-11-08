@@ -86,8 +86,8 @@
                 // error
                 alert(table[i].value.event_name.value + 'のテーブルデータの更新に失敗しました。' + error);
               });
-              return true
             }
+          return true
           });
         } else { // 公開済みイベントを更新
           request = gapi.client.calendar.events.patch({
@@ -102,6 +102,7 @@
               // success
             }
           });
+          return true
         }
       }
       alert('Gカレンダーに科目を更新しました。');
