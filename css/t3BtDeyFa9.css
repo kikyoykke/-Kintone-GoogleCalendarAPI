@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.kuc-button__button {
+    font-size: 14px !important;
+    min-width: 80px !important;
+    height: 40px !important;
+    line-height: 40px !important;
+    margin-right: 8px !important;
+}
