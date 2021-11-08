@@ -39,7 +39,7 @@
     
     /*　受講者情報テーブルのフィールドIDを取得　*/
     var tableObj = Object.values(Object.values(cybozu.data.page.FORM_DATA.schema.subTable));
-    tableObj = tableObj.filter(item => item.var === 'students_table');
+    tableObj = tableObj.filter(item => item.var === '受講者情報');
     tableObj = Object.values(tableObj[0].fieldList);
     for(let i = 0; i < tableObj.length; i++){
       table_keysArray.push(tableObj[i].var);
