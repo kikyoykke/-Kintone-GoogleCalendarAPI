@@ -103,8 +103,8 @@
           return true
         }
       }
-      alert('Gカレンダーに科目を更新しました。');
-      location.reload();
     }
+    alert('Gカレンダーに科目を更新しました。');
+    location.reload();
   }
 })();
