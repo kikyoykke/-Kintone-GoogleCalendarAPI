@@ -80,14 +80,15 @@
               };
              return kintone.api(kintone.api.url('/k/v1/record.json', true), 'PUT', body, function(resp) {
                 // success
+                alert('Gカレンダーに科目を更新しました。');
+                location.reload();
               }, function(error) {
                 // error
                 alert(table[i].value.event_name.value + 'のテーブルデータの更新に失敗しました。' + error);
               });
+              return true
             }
-            return true;
           });
-            
         } else { // 公開済みイベントを更新
           request = gapi.client.calendar.events.patch({
             'calendarId': record.calendar_id.value,
@@ -100,12 +101,10 @@
             } else {
               // success
             }
-            return true;
           });
         }
       }
       alert('Gカレンダーに科目を更新しました。');
-      location.reload();
     }
   }
 })();
