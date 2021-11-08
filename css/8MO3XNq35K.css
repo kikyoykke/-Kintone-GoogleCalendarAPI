@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.row-gaia .control-spacer-field-gaia {
+  height: 100% !important;
+}
+.row-gaia clearFix-cybozu{
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+  margin-bottom: 0px !important;
+}
+.spacer-cybozu{
+  margin-left: 8px !important;
+}
