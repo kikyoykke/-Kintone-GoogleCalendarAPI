@@ -80,7 +80,6 @@
               };
              return kintone.api(kintone.api.url('/k/v1/record.json', true), 'PUT', body, function(resp) {
                 // success
-                location.reload();
               }, function(error) {
                 // error
                 alert(table[i].value.event_name.value + 'のテーブルデータの更新に失敗しました。' + error);
@@ -105,6 +104,7 @@
         }
       }
       alert('Gカレンダーに科目を更新しました。');
+      location.reload();
     }
   }
 })();
