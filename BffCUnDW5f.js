@@ -80,8 +80,6 @@
               };
              return kintone.api(kintone.api.url('/k/v1/record.json', true), 'PUT', body, function(resp) {
                 // success
-                alert('Gカレンダーに科目を登録しました。');
-                location.reload();
               }, function(error) {
                 // error
                 alert(table[i].value.event_name.value + 'のテーブルデータの更新に失敗しました。' + error);
@@ -100,13 +98,14 @@
             if (resp.error) {
               alert(table[i].value.event_name.value + 'の登録に失敗しました。' + resp.error.message);
             } else {
-              alert('Gカレンダーに科目を更新しました。');
-              location.reload();
+              // success
             }
             return true;
           });
         }
       }
+      alert('Gカレンダーに科目を更新しました。');
+      location.reload();
     }
   }
 })();
