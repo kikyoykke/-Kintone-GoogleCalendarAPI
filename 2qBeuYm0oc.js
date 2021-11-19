@@ -7,7 +7,7 @@
     api_key = event.record.api_key.value;
     client_id = event.record.client_id.value;
     scopes = event.record.scopes.value;
-    discovery_docs.push(event.record.discovery_docs.value.split(','));
+    discovery_docs = event.record.discovery_docs.value.split(','));
     
     gapi.load('client:auth2', initClient);
   });
