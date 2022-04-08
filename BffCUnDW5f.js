@@ -57,9 +57,9 @@
             'dateTime': end_datetime,
             'timeZone': 'Asia/Tokyo'
           },
-          'attendees': {
+          'attendees': [
             {'email': 'miyazaki@marine-techno.or.jp'}
-          },
+          ],
         };
         if (!table[i].value.event_id.value) { // 未公開のイベントを追加
           request = gapi.client.calendar.events.insert({
