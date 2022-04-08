@@ -58,7 +58,7 @@
             'timeZone': 'Asia/Tokyo'
           },
           'attendees': {
-            {'email': 'miyazaki@marine-techno.or.jp'
+            {'email': 'miyazaki@marine-techno.or.jp'}
           },
         };
         if (!table[i].value.event_id.value) { // 未公開のイベントを追加
