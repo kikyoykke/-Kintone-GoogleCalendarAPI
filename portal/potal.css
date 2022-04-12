@@ -1,0 +1,424 @@
+.designportal .basic-heading1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-heading1 {
+    font-size: 2.4rem;
+    margin: 0;
+    padding: 0 15px 5px 15px;
+  }
+}
+
+.designportal .basic-heading1--white {
+  color: #FFFFFF;
+}
+
+.designportal .basic-heading2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 20px 0 10px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-heading2 {
+    font-size: 2rem;
+    padding: 10px 0 10px 0;
+    margin: 0;
+  }
+}
+
+.designportal .basic-heading3 {
+  margin: 20px 0 0 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-heading3 {
+    font-size: 1.6rem;
+  }
+}
+
+.designportal .basic-text {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-text {
+    font-size: 1.6rem;
+  }
+}
+
+.designportal .basic-list-item {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-list-item {
+    font-size: 1.6rem;
+  }
+}
+
+.designportal .basic-app-name {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-app-name {
+    font-size: 1.6rem;
+    text-align: left;
+    margin-top: 0;
+    margin-left: 10px;
+  }
+}
+
+.designportal .basic-space-name {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-space-name {
+    font-size: 1.6rem;
+    text-align: left;
+    margin-top: 0;
+    margin-left: 10px;
+  }
+}
+
+.designportal-basic {
+  display: block;
+  position: relative;
+  background-color: #F2F2F2;
+}
+
+.designportal-basic h1, .designportal-basic h2, .designportal-basic h3, .designportal-basic ul, .designportal-basic ol, .designportal-basic p, .designportal-basic th, .designportal-basic td, .designportal-basic dl, .designportal-basic dt, .designportal-basic dd {
+  margin: 0;
+  padding: 0;
+}
+
+.designportal-basic ul {
+  list-style: disc;
+}
+
+.designportal-basic ol {
+  list-style: decimal;
+}
+
+.designportal .basic-container {
+  width: 1080px;
+  margin: 0 auto;
+  padding: 20px 0 20px;
+}
+
+.designportal .basic-container:last-child {
+  padding-bottom: 40px;
+}
+
+@media screen and (max-width: 1160px) {
+  .designportal .basic-container {
+    width: 96vw;
+    margin: 0 2vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0 5px 0;
+  }
+}
+
+.designportal .basic-appSet, .designportal .basic-spaceSet, .designportal .basic-dataSet {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 20px 70px 20px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-appSet, .designportal .basic-spaceSet, .designportal .basic-dataSet {
+    display: block;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+  }
+}
+
+.designportal .basic-dataSet {
+  justify-content: normal;
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-dataSet {
+    padding: 15px 15px;
+  }
+}
+
+.designportal .basic-data {
+  display: block;
+  width: 100%;
+  list-style-type: none;
+  margin: 0 0 20px 0;
+}
+
+.designportal .basic-data-notifications {
+  margin: 0 0 10px 0;
+  text-align: left;
+}
+
+.designportal .basic-app {
+  display: block;
+  width: 168px;
+  margin: 20px;
+  list-style-type: none;
+}
+
+@media screen and (max-width: 1160px) {
+  .designportal .basic-app {
+    width: 16%;
+    margin: 2%;
+  }
+  .designportal .basic-app:first-child {
+    margin-left: 0;
+  }
+  .designportal .basic-app:last-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-app {
+    width: auto;
+    margin: 0;
+    padding: 10px 15px;
+    border-bottom: solid 1px #dddddd;
+  }
+  .designportal .basic-app:last-child {
+    border-bottom: none;
+  }
+}
+
+.designportal .basic-app-link, .designportal .basic-space-link {
+  display: block;
+  color: #000000;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-app-link, .designportal .basic-space-link {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.designportal .basic-app-link:hover, .designportal .basic-space-link:hover, .designportal .basic-app-link:focus, .designportal .basic-space-link:focus {
+  text-decoration: underline;
+}
+
+.designportal .basic-app-link:focus, .designportal .basic-space-link:focus {
+  outline: #3498db solid 1px;
+}
+
+.designportal .basic-app-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 25px;
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-app-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    margin: 0;
+  }
+}
+
+.designportal .basic-app-icon-img {
+  display: block;
+  width: 70px;
+  height: 70px;
+  padding: 15px;
+  fill: #FFFFFF;
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-app-icon-img {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+  }
+}
+
+.designportal .basic-space {
+  display: block;
+  width: 220px;
+  margin: 20px;
+  list-style-type: none;
+}
+
+@media screen and (max-width: 1160px) {
+  .designportal .basic-space {
+    width: 46%;
+    margin: 1.9%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-space {
+    width: auto;
+    margin: 0;
+    padding: 10px 15px;
+    border-bottom: solid 1px #dddddd;
+  }
+  .designportal .basic-space:last-child {
+    border-bottom: none;
+  }
+}
+
+.designportal .basic-space-img-container {
+  height: 100px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1160px) {
+  .designportal .basic-space-img-container {
+    width: 100%;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-space-img-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+}
+
+.designportal .basic-space-img {
+  display: block;
+  height: 100px;
+  border-radius: 10px;
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+
+@media screen and (max-width: 768px) {
+  .designportal .basic-space-img {
+    display: block;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.designportal .basic-space-img--sales {
+  background-image: url(https://static.cybozu.com/contents/k/image/ocean/cover/freshleaf.jpg);
+}
+
+.designportal .basic-space-img--marketing {
+  background-image: url(https://static.cybozu.com/contents/k/image/ocean/cover/questionmark.jpg);
+}
+
+.designportal .basic-space-img--customer-service {
+  background-image: url(https://static.cybozu.com/contents/k/image/ocean/cover/cappuccino.jpg);
+}
+
+.designportal .basic-space-img--human-resource {
+  background-image: url(https://static.cybozu.com/contents/k/image/ocean/cover/documents.jpg);
+}
+
+.designportal .basic-list {
+  margin: 18px 0 18px 30px;
+}
+
+.designportal .basic-app-icon--red {
+  background: linear-gradient(180deg, #C62828 0%, #E53935 100%);
+}
+
+.designportal .basic-app-icon--pink {
+  background: linear-gradient(180deg, #AD1457 0%, #D81B60 100%);
+}
+
+.designportal .basic-app-icon--purple {
+  background: linear-gradient(180deg, #6A1B9A 0%, #8E24AA 100%);
+}
+
+.designportal .basic-app-icon--deeppurple {
+  background: linear-gradient(180deg, #4527A0 0%, #5E35B1 100%);
+}
+
+.designportal .basic-app-icon--indigo {
+  background: linear-gradient(180deg, #283593 0%, #3949AB 100%);
+}
+
+.designportal .basic-app-icon--blue {
+  background: linear-gradient(180deg, #1565C0 0%, #1E88E5 100%);
+}
+
+
+.designportal .basic-app-icon--lightblue {
+  background: linear-gradient(180deg, #0277BD 0%, #039BE5 100%);
+}
+
+.designportal .basic-app-icon--cyan {
+  background: linear-gradient(180deg, #00838F 0%, #00ACC1 100%);
+}
+
+.designportal .basic-app-icon--teal {
+  background: linear-gradient(180deg, #00695C 0%, #00897B 100%);
+}
+
+.designportal .basic-app-icon--green {
+  background: linear-gradient(180deg, #2E7D32 0%, #43A047 100%);
+}
+
+.designportal .basic-app-icon--lightgreen {
+  background: linear-gradient(180deg, #558B2F 0%, #7CB342 100%);
+}
+
+.designportal .basic-app-icon--lime {
+  background: linear-gradient(180deg, #9E9D24 0%, #C0CA33 100%);
+}
+
+.designportal .basic-app-icon--yellow {
+  background: linear-gradient(180deg, #F9A825 0%, #FDD835 100%);
+}
+
+.designportal .basic-app-icon--amber {
+  background: linear-gradient(180deg, #FF8F00 0%, #FFB300 100%);
+}
+
+.designportal .basic-app-icon--orange {
+  background: linear-gradient(180deg, #EF6C00 0%, #FB8C00 100%);
+}
+
+.designportal .basic-app-icon--deeporange {
+  background: linear-gradient(180deg, #D84315 0%, #F4511E 100%);
+}
+
+.designportal .basic-app-icon--brown {
+  background: linear-gradient(180deg, #4E342E 0%, #6D4C41 100%);
+}
+
+.designportal .basic-app-icon--gray {
+  background: linear-gradient(180deg, #424242 0%, #757575 100%);
+}
+
+.designportal .basic-app-icon--bluegray {
+  background: linear-gradient(180deg, #37474F 0%, #546E7A 100%);
+}
